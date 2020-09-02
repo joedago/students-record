@@ -27,6 +27,10 @@ public class ModelsGenerator {
 		student.setLastName("lastname");
 		student.setEmail("email@email.com");
 		student.setState("state");
+		student.setCity("city");
+		student.setCountry("country");
+		student.setStreetAddress1("address");
+		student.setZipCode(12345);
 		Calendar date = Calendar.getInstance();
 		date.add(Calendar.YEAR, -STUDENT_AGE);
 		student.setBirthDate(new Date(date.getTimeInMillis()));

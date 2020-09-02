@@ -13,6 +13,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.hateoas.EntityModel;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -25,7 +26,7 @@ import com.joedago.studentsrecord.services.StudentService;
 import com.joedago.studentsrecord.utils.ModelsGenerator;
 
 @AutoConfigureMockMvc
-@WebMvcTest(controllers = StudentControllerTest.class)
+@WebMvcTest(controllers = StudentController.class)
 @ContextConfiguration(classes = Application.class)
 class StudentControllerTest {
 
@@ -39,7 +40,11 @@ class StudentControllerTest {
 	@Test
 	void testSaveStudent() throws Exception {
 		Mockito.doNothing().when(studentService).saveStudent(Mockito.any(Student.class));
-		mockMvc.perform(post(ControllerConstants.STUDENT_URI))
+		Student student = ModelsGenerator.generateValidStudent();
+		String request = objectMapper.writeValueAsString(student);
+		mockMvc.perform(post(ControllerConstants.STUDENT_URI)
+				.content(request)
+				.contentType(MediaType.APPLICATION_JSON))		
 		.andExpect(status().isCreated())
 		.andReturn();
 	}
