@@ -23,12 +23,11 @@ public class PositionRepositoryImpl implements PositionRepository {
 	
 	private static final Logger LOG = Logger.getLogger(PositionRepositoryImpl.class);
 
-	@Autowired
 	private final RestTemplate restTemplate;
 	
-	@Autowired
 	private final PositionStackProperties properties;
-	
+
+	@Autowired
 	public PositionRepositoryImpl(RestTemplate restTemplate, PositionStackProperties properties) {
 		this.restTemplate = restTemplate;
 		this.properties = properties;

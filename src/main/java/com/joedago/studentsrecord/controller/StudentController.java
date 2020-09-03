@@ -26,9 +26,9 @@ import com.joedago.studentsrecord.service.StudentService;
 @RequestMapping(STUDENT_URI)
 public class StudentController {
 	
-	@Autowired
 	private final StudentService studentService;
-	
+
+	@Autowired
 	public StudentController(StudentService studentService) {
 		this.studentService = studentService;
 	}

@@ -18,12 +18,10 @@ import com.joedago.studentsrecord.util.StudentUtils;
 @Service
 public class StudentServiceImpl implements StudentService {
 	
-	@Autowired
 	private final StudentRepository studentRepository;
-	
-	@Autowired
 	private final PositionRepository positionRepository;
 	
+	@Autowired
 	public StudentServiceImpl(StudentRepository studentRepository, PositionRepository positionRepository) {
 		this.studentRepository = studentRepository;
 		this.positionRepository = positionRepository;

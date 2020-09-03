@@ -44,9 +44,7 @@ public class PositionUtils {
 			builder.append(student.getZipCode());
 			builder.append(" ");
 		}
-		if(student.getCountry() != null) {
-			builder.append(student.getCountry());
-		}
+		
 		return builder.toString();
 	}
 }
