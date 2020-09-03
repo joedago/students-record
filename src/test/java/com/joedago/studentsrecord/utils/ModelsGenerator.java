@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import com.joedago.studentsrecord.models.DataResponse;
-import com.joedago.studentsrecord.models.PositionResponse;
-import com.joedago.studentsrecord.models.StudentSimilarity;
-import com.joedago.studentsrecord.persistence.entities.Student;
+import com.joedago.studentsrecord.model.DataResponse;
+import com.joedago.studentsrecord.model.PositionResponse;
+import com.joedago.studentsrecord.model.StudentSimilarity;
+import com.joedago.studentsrecord.persistence.entity.Student;
 
 public class ModelsGenerator {
 	
@@ -21,7 +21,7 @@ public class ModelsGenerator {
 	}
 	
 	public static Student generateValidStudent(Integer studentId) {
-		Student student = new Student();
+		final Student student = new Student();
 		student.setStudentId(studentId);
 		student.setFirstName("name");
 		student.setLastName("lastname");
@@ -31,40 +31,40 @@ public class ModelsGenerator {
 		student.setCountry("country");
 		student.setStreetAddress1("address");
 		student.setZipCode(12345);
-		Calendar date = Calendar.getInstance();
+		final Calendar date = Calendar.getInstance();
 		date.add(Calendar.YEAR, -STUDENT_AGE);
 		student.setBirthDate(new Date(date.getTimeInMillis()));
 		return student;
 	}
 	
 	public static Student generate75SimilarityStudent() {
-		Student student = generateValidStudent();
+		final Student student = generateValidStudent();
 		student.setFirstName("othername");
 		return student;
 	}
 	
 	public static Student generate50SimilarityStudent() {
-		Student student = generate75SimilarityStudent();
+		final Student student = generate75SimilarityStudent();
 		student.setLastName("othername");
 		return student;
 	}
 	
 	public static Student generate25SimilarityStudent() {
-		Student student = generate50SimilarityStudent();
+		final Student student = generate50SimilarityStudent();
 		student.setState("otherstate");
 		return student;
 	}
 	
 	public static Student generate0SimilarityStudent() {
-		Student student = generate25SimilarityStudent();
+		final Student student = generate25SimilarityStudent();
 		student.setBirthDate(new Date(Calendar.getInstance().getTimeInMillis()));
 		return student;
 	}
 	
 	public static PositionResponse generatePositionResponse() {
-		PositionResponse response = new PositionResponse();
-		List<DataResponse> data = new ArrayList<>();
-		DataResponse d = new DataResponse();
+		final PositionResponse response = new PositionResponse();
+		final List<DataResponse> data = new ArrayList<>();
+		final DataResponse d = new DataResponse();
 		d.setLatitude(123D);
 		d.setLongitude(456D);
 		data.add(d);
@@ -73,9 +73,9 @@ public class ModelsGenerator {
 	}
 
 	public static StudentSimilarity generateStudentSimilarity() {
-		Student student1 = generateValidStudent();
-		Student student2 = generateValidStudent();
-		StudentSimilarity similarity = new StudentSimilarity();
+		final Student student1 = generateValidStudent();
+		final Student student2 = generateValidStudent();
+		final StudentSimilarity similarity = new StudentSimilarity();
 		similarity.setSimilarityPercentage(100);
 		similarity.setStudent1(student1);
 		similarity.setStudent2(student2);

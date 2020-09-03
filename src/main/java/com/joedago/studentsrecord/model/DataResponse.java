@@ -1,4 +1,4 @@
-package com.joedago.studentsrecord.models;
+package com.joedago.studentsrecord.model;
 
 public class DataResponse {
 

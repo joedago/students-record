@@ -20,9 +20,11 @@ import org.springframework.test.web.servlet.MvcResult;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.joedago.studentsrecord.Application;
-import com.joedago.studentsrecord.models.StudentSimilarity;
-import com.joedago.studentsrecord.persistence.entities.Student;
-import com.joedago.studentsrecord.services.StudentService;
+import com.joedago.studentsrecord.controller.StudentController;
+import com.joedago.studentsrecord.model.StudentSimilarity;
+import com.joedago.studentsrecord.persistence.entity.Student;
+import com.joedago.studentsrecord.service.StudentService;
+import com.joedago.studentsrecord.util.ControllerConstants;
 import com.joedago.studentsrecord.utils.ModelsGenerator;
 
 @AutoConfigureMockMvc

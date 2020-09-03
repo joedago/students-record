@@ -1,9 +1,9 @@
-package com.joedago.studentsrecord.controllers;
+package com.joedago.studentsrecord.controller;
 
-import static com.joedago.studentsrecord.controllers.ControllerConstants.STUDENT_COMPARE;
-import static com.joedago.studentsrecord.controllers.ControllerConstants.STUDENT_ID_1;
-import static com.joedago.studentsrecord.controllers.ControllerConstants.STUDENT_ID_2;
-import static com.joedago.studentsrecord.controllers.ControllerConstants.STUDENT_URI;
+import static com.joedago.studentsrecord.util.ControllerConstants.STUDENT_COMPARE;
+import static com.joedago.studentsrecord.util.ControllerConstants.STUDENT_ID_1;
+import static com.joedago.studentsrecord.util.ControllerConstants.STUDENT_ID_2;
+import static com.joedago.studentsrecord.util.ControllerConstants.STUDENT_URI;
 
 import javax.validation.Valid;
 
@@ -18,20 +18,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.joedago.studentsrecord.models.StudentSimilarity;
-import com.joedago.studentsrecord.persistence.entities.Student;
-import com.joedago.studentsrecord.services.StudentService;
+import com.joedago.studentsrecord.model.StudentSimilarity;
+import com.joedago.studentsrecord.persistence.entity.Student;
+import com.joedago.studentsrecord.service.StudentService;
 
 @RestController
 @RequestMapping(STUDENT_URI)
 public class StudentController {
 	
 	@Autowired
-	StudentService studentService;
+	private final StudentService studentService;
+	
+	public StudentController(StudentService studentService) {
+		this.studentService = studentService;
+	}
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public void saveStudent(@Valid @RequestBody Student student) {
+	public void saveStudent(@Valid @RequestBody final Student student) {
 		studentService.saveStudent(student);
 	}
 	
@@ -39,7 +43,7 @@ public class StudentController {
 	public EntityModel<StudentSimilarity> compareStudents(
 			@RequestParam(name = STUDENT_ID_1, required = true) Integer studentId1
 			,@RequestParam(name = STUDENT_ID_2, required = true) Integer studentId2) {
-		StudentSimilarity similarity = studentService.compareStudents(studentId1, studentId2);
+		final StudentSimilarity similarity = studentService.compareStudents(studentId1, studentId2);
 		return EntityModel.of(similarity);
 	}
 }

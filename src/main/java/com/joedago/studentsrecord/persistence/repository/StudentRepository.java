@@ -1,8 +1,8 @@
-package com.joedago.studentsrecord.persistence.repositories;
+package com.joedago.studentsrecord.persistence.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.joedago.studentsrecord.persistence.entities.Student;
+import com.joedago.studentsrecord.persistence.entity.Student;
 
 public interface StudentRepository extends JpaRepository<Student, Integer>  {
 

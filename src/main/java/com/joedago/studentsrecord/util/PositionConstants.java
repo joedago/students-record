@@ -1,4 +1,4 @@
-package com.joedago.studentsrecord.utils;
+package com.joedago.studentsrecord.util;
 
 public class PositionConstants {
 	

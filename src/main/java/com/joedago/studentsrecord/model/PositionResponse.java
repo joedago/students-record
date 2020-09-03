@@ -1,4 +1,4 @@
-package com.joedago.studentsrecord.models;
+package com.joedago.studentsrecord.model;
 
 import java.util.List;
 

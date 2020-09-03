@@ -1,4 +1,4 @@
-package com.joedago.studentsrecord.exceptions;
+package com.joedago.studentsrecord.exception;
 
 import java.sql.Timestamp;
 import java.util.Calendar;
@@ -20,7 +20,7 @@ public class CustomResponseExceptionHandler extends ResponseEntityExceptionHandl
 
 	@ExceptionHandler(ResponseStatusException.class)
 	public ResponseEntity<ExceptionResponse> handleResponseStatusException(ResponseStatusException ex) {
-		ExceptionResponse response = new ExceptionResponse();
+		final ExceptionResponse response = new ExceptionResponse();
 		response.setHttpStatus(ex.getStatus().value());
 		response.setCustomError(ex.getReason());
 		response.setDate(new Timestamp(Calendar.getInstance().getTimeInMillis()));
@@ -30,7 +30,7 @@ public class CustomResponseExceptionHandler extends ResponseEntityExceptionHandl
 	@Override
 	public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, 
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
-		ExceptionResponse response = new ExceptionResponse();
+		final ExceptionResponse response = new ExceptionResponse();
 		response.setHttpStatus(HttpStatus.BAD_REQUEST.value());
 		response.setDate(new Timestamp(Calendar.getInstance().getTimeInMillis()));
 		response.setErrors(ex.getBindingResult().getAllErrors().stream()

@@ -1,4 +1,4 @@
-package com.joedago.studentsrecord.exceptions;
+package com.joedago.studentsrecord.exception;
 
 public class ExceptionMessages {
 	

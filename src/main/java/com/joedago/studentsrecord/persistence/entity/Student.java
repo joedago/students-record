@@ -1,4 +1,4 @@
-package com.joedago.studentsrecord.persistence.entities;
+package com.joedago.studentsrecord.persistence.entity;
 
 import java.sql.Date;
 

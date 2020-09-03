@@ -1,4 +1,4 @@
-package com.joedago.studentsrecord.exceptions;
+package com.joedago.studentsrecord.exception;
 
 import java.sql.Timestamp;
 import java.util.List;

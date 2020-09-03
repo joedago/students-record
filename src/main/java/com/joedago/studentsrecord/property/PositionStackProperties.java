@@ -1,4 +1,4 @@
-package com.joedago.studentsrecord;
+package com.joedago.studentsrecord.property;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

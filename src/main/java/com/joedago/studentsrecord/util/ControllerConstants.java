@@ -1,4 +1,4 @@
-package com.joedago.studentsrecord.controllers;
+package com.joedago.studentsrecord.util;
 
 public class ControllerConstants {
 

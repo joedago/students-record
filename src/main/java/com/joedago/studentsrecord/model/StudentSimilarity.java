@@ -1,6 +1,6 @@
-package com.joedago.studentsrecord.models;
+package com.joedago.studentsrecord.model;
 
-import com.joedago.studentsrecord.persistence.entities.Student;
+import com.joedago.studentsrecord.persistence.entity.Student;
 
 public class StudentSimilarity {
 	
